@@ -88,34 +88,6 @@ typedef unsigned __int32 uint32_t;
 #define MX (((z >> 5) ^ (y << 2)) + ((y >> 3) ^ (z << 4))) ^ ((sum ^ y) + (key[(p & 3) ^ e] ^ z))
 #define DELTA 0x9e3779b9
 
-/* compiled function list so Zend knows what's in this module */
-zend_function_entry xxtea_functions[] = {
-    ZEND_FE(xxtea_encrypt, NULL)
-    ZEND_FE(xxtea_decrypt, NULL)
-    ZEND_FE(xxtea_info, NULL)
-    {NULL, NULL, NULL}
-};
-
-/* compiled module information */
-zend_module_entry xxtea_module_entry = {
-    STANDARD_MODULE_HEADER,
-    XXTEA_MODULE_NAME,
-    xxtea_functions,
-    ZEND_MINIT(xxtea),
-    ZEND_MSHUTDOWN(xxtea),
-    NULL,
-    NULL,
-    ZEND_MINFO(xxtea),
-    XXTEA_VERSION,
-    STANDARD_MODULE_PROPERTIES
-};
-
-/* implement standard "stub" routine to introduce ourselves to Zend */
-#if defined(COMPILE_DL_XXTEA)
-ZEND_GET_MODULE(xxtea)
-#endif
-
-
 static uint32_t * xxtea_to_uint_array(const uint8_t * data, size_t len, int inc_len, size_t * out_len) {
     uint32_t *out;
     size_t i, n;
@@ -265,6 +237,33 @@ static uint8_t * xxtea_ubyte_decrypt(const uint8_t * data, size_t len, const uin
     return out;
 }
 
+/* compiled function list so Zend knows what's in this module */
+zend_function_entry xxtea_functions[] = {
+    ZEND_FE(xxtea_encrypt, NULL)
+    ZEND_FE(xxtea_decrypt, NULL)
+    ZEND_FE(xxtea_info, NULL)
+    {NULL, NULL, NULL}
+};
+
+/* compiled module information */
+zend_module_entry xxtea_module_entry = {
+    STANDARD_MODULE_HEADER,
+    XXTEA_MODULE_NAME,
+    xxtea_functions,
+    ZEND_MINIT(xxtea),
+    ZEND_MSHUTDOWN(xxtea),
+    NULL,
+    NULL,
+    ZEND_MINFO(xxtea),
+    XXTEA_VERSION,
+    STANDARD_MODULE_PROPERTIES
+};
+
+/* implement standard "stub" routine to introduce ourselves to Zend */
+#if defined(COMPILE_DL_XXTEA)
+ZEND_GET_MODULE(xxtea)
+#endif
+
 /* {{{ proto string xxtea_encrypt(string data, string key)
    Encrypt string using XXTEA algorithm */
 ZEND_FUNCTION(xxtea_encrypt) {
@@ -328,7 +327,18 @@ ZEND_FUNCTION(xxtea_decrypt) {
 }
 /* }}} */
 
+zend_class_entry *xxtea_ce;
+
+static zend_function_entry xxtea_method[] = {
+    ZEND_ME_MAPPING(encrypt, xxtea_encrypt, NULL, ZEND_ACC_STATIC | ZEND_ACC_PUBLIC)
+    ZEND_ME_MAPPING(decrypt, xxtea_decrypt, NULL, ZEND_ACC_STATIC | ZEND_ACC_PUBLIC)
+    {NULL,NULL,NULL}
+};
+
 ZEND_MINIT_FUNCTION(xxtea) {
+    zend_class_entry ce;
+    INIT_CLASS_ENTRY(ce, "XXTEA", xxtea_method);
+    xxtea_ce = zend_register_internal_class(&ce TSRMLS_CC);
     return SUCCESS;
 }
 
