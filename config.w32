@@ -1,0 +1,5 @@
+ARG_ENABLE("xxtea", "xxtea support", "no");
+
+if (PHP_XXTEA != "no") {
+    EXTENSION("xxtea", "php_xxtea.c");
+}

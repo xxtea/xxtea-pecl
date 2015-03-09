@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package
+ packagerversion="1.4.11"
+ version="2.0"
+ xmlns="http://pear.php.net/dtd/package-2.0"
+ xmlns:tasks="http://pear.php.net/dtd/tasks-1.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+http://pear.php.net/dtd/tasks-1.0.xsd
+http://pear.php.net/dtd/package-2.0
+http://pear.php.net/dtd/package-2.0.xsd">
+	<name>xxtea</name>
+	<channel>pecl.php.net</channel>
+	<summary>XXTEA for PHP.</summary>
+	<description>XXTEA encryption algorithm extension for PHP.
+XXTEA is a fast and secure encryption algorithm. This is a XXTEA extension for PHP.
+It is different from the original XXTEA encryption algorithm. It encrypts and decrypts string instead of uint32 array, and the key is also string.
+	</description>
+	<lead>
+		<name>Ma Bingyao</name>
+		<user>andot</user>
+		<email>mabingyao@gmail.com</email>
+		<active>yes</active>
+	</lead>
+	<date>2015-03-09</date>
+	<time>16:01:51</time>
+	<version>
+		<release>1.0.5</release>
+		<api>1.0.5</api>
+	</version>
+	<stability>
+		<release>stable</release>
+		<api>stable</api>
+	</stability>
+	<license uri="http://mit-license.org/">MIT</license>
+	<notes>Initial release to PECL</notes>
+	<contents>
+		<dir name="/">
+			<file role="doc" name="CREDITS" />
+			<file role="doc" name="LICENSE.md" />
+			<file role="doc" name="README.md" />
+			<file role="doc" name="README_zh_CN.md" />
+			<file role="src" name="config.m4" />
+			<file role="src" name="config.w32" />
+			<file role="src" name="php_xxtea.h" />
+			<file role="src" name="php_xxtea.c" />
+			<dir name="test">
+				<file role="test" name="xxtea.phpt" />
+			</dir>
+		</dir>
+	</contents>
+	<dependencies>
+		<required>
+			<php>
+				<min>5.0</min>
+			</php>
+			<pearinstaller>
+				<min>1.4.0</min>
+			</pearinstaller>
+		</required>
+	</dependencies>
+	<providesextension>xxtea</providesextension>
+	<extsrcrelease>
+		<configureoption default="yes" name="enable-xxtea" prompt="whether to enable xxtea support" />
+	</extsrcrelease>
+</package>
