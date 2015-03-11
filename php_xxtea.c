@@ -9,7 +9,7 @@
 |      Roger M. Needham                                    |
 |                                                          |
 | Code Author:  Ma Bingyao <mabingyao@gmail.com>           |
-| LastModified: Mar 10, 2015                               |
+| LastModified: Mar 11, 2015                               |
 |                                                          |
 \**********************************************************/
 
@@ -95,14 +95,12 @@ static uint32_t * xxtea_to_uint_array(const uint8_t * data, size_t len, int inc_
     n = (((len & 3) == 0) ? (len >> 2) : ((len >> 2) + 1));
 
     if (inc_len) {
-        out = (uint32_t *)ecalloc(n + 1, sizeof(uint32_t));
-        if (!out) return NULL;
+        out = ecalloc(n + 1, sizeof(uint32_t));
         out[n] = (uint32_t)len;
         *out_len = n + 1;
     }
     else {
-        out = (uint32_t *)ecalloc(n, sizeof(uint32_t));
-        if (!out) return NULL;
+        out = ecalloc(n, sizeof(uint32_t));
         *out_len = n;
     }
 #if defined(BYTE_ORDER) && (BYTE_ORDER == LITTLE_ENDIAN)
@@ -197,14 +195,7 @@ static uint8_t * xxtea_ubyte_encrypt(const uint8_t * data, size_t len, const uin
     if (!len) return NULL;
 
     data_array = xxtea_to_uint_array(data, len, 1, &data_len);
-    if (!data_array) return NULL;
-
     key_array  = xxtea_to_uint_array(key, 16, 0, &key_len);
-    if (!key_array) {
-        efree(data_array);
-        return NULL;
-    }
-
     out = xxtea_to_ubyte_array(xxtea_uint_encrypt(data_array, data_len, key_array), data_len, 0, out_len);
 
     efree(data_array);
@@ -221,14 +212,7 @@ static uint8_t * xxtea_ubyte_decrypt(const uint8_t * data, size_t len, const uin
     if (!len) return NULL;
 
     data_array = xxtea_to_uint_array(data, len, 0, &data_len);
-    if (!data_array) return NULL;
-
     key_array  = xxtea_to_uint_array(key, 16, 0, &key_len);
-    if (!key_array) {
-        efree(data_array);
-        return NULL;
-    }
-
     out = xxtea_to_ubyte_array(xxtea_uint_decrypt(data_array, data_len, key_array), data_len, 1, out_len);
 
     efree(data_array);
