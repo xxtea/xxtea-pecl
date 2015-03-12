@@ -349,7 +349,7 @@ ZEND_MINFO_FUNCTION(xxtea) {
 
 ZEND_FUNCTION(xxtea_info) {
     array_init(return_value);
-    __add_assoc_string(return_value, "ext_version", XXTEA_VERSION, 1);
-    __add_assoc_string(return_value, "ext_build_date", XXTEA_BUILD_DATE, 1);
-    __add_assoc_string(return_value, "ext_author", XXTEA_AUTHOR, 1);
+    __add_assoc_string(return_value, "ext_version", XXTEA_VERSION);
+    __add_assoc_string(return_value, "ext_build_date", XXTEA_BUILD_DATE);
+    __add_assoc_string(return_value, "ext_author", XXTEA_AUTHOR);
 }
