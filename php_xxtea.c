@@ -9,7 +9,7 @@
 |      Roger M. Needham                                    |
 |                                                          |
 | Code Author:  Ma Bingyao <mabingyao@gmail.com>           |
-| LastModified: Mar 11, 2015                               |
+| LastModified: Mar 12, 2015                               |
 |                                                          |
 \**********************************************************/
 
@@ -83,6 +83,14 @@ typedef unsigned __int32 uint32_t;
 #endif
 #endif
 #endif
+#endif
+
+#if PHP_MAJOR_VERSION < 7
+#define __RETURN_STRINGL(s, l) RETURN_STRINGL(s, l, 0)
+#define __add_assoc_string(arg, key, str) add_assoc_string(arg, key, str, 1)
+#else
+#define __RETURN_STRINGL(s, l) RETURN_STRINGL(s, l)
+#define __add_assoc_string(arg, key, str) add_assoc_string(arg, key, str)
 #endif
 
 #define MX (((z >> 5) ^ (y << 2)) + ((y >> 3) ^ (z << 4))) ^ ((sum ^ y) + (key[(p & 3) ^ e] ^ z))
@@ -261,7 +269,7 @@ ZEND_FUNCTION(xxtea_encrypt) {
         return;
     }
     if (data_len == 0) {
-        RETURN_STRINGL(NULL, 0, 0);
+        __RETURN_STRINGL(NULL, 0);
     }
 
     if (key_len < 16) {
@@ -276,7 +284,7 @@ ZEND_FUNCTION(xxtea_encrypt) {
     if (result == NULL) {
         RETURN_FALSE;
     }
-    RETURN_STRINGL(result, ret_length, 0);
+    __RETURN_STRINGL(result, ret_length);
 }
 /* }}} */
 
@@ -294,7 +302,7 @@ ZEND_FUNCTION(xxtea_decrypt) {
         return;
     }
     if (data_len == 0) {
-        RETURN_STRINGL(NULL, 0, 0);
+        __RETURN_STRINGL(NULL, 0);
     }
     if (key_len < 16) {
         memcpy(fixed_key, key, key_len);
@@ -307,7 +315,7 @@ ZEND_FUNCTION(xxtea_decrypt) {
     if (result == NULL) {
         RETURN_FALSE;
     }
-    RETURN_STRINGL(result, ret_length, 0);
+    __RETURN_STRINGL(result, ret_length);
 }
 /* }}} */
 
@@ -341,7 +349,7 @@ ZEND_MINFO_FUNCTION(xxtea) {
 
 ZEND_FUNCTION(xxtea_info) {
     array_init(return_value);
-    add_assoc_string(return_value, "ext_version", XXTEA_VERSION, 1);
-    add_assoc_string(return_value, "ext_build_date", XXTEA_BUILD_DATE, 1);
-    add_assoc_string(return_value, "ext_author", XXTEA_AUTHOR, 1);
+    __add_assoc_string(return_value, "ext_version", XXTEA_VERSION, 1);
+    __add_assoc_string(return_value, "ext_build_date", XXTEA_BUILD_DATE, 1);
+    __add_assoc_string(return_value, "ext_author", XXTEA_AUTHOR, 1);
 }
