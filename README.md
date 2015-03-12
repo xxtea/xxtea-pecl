@@ -1,5 +1,7 @@
 # XXTEA extension for PHP
 
+[![Build Status](https://travis-ci.org/xxtea/xxtea-pecl.svg?branch=master)](https://travis-ci.org/xxtea/xxtea-pecl)
+
 ## Introduction
 
 XXTEA is a fast and secure encryption algorithm. This is a XXTEA extension for PHP.
