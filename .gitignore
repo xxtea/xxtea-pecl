@@ -9,8 +9,16 @@ configure
 configure.in
 install-sh
 ltmain.sh
-Makefile.global
 missing
 mkinstalldirs
 run-tests.php
 nbproject
+Makefile
+Makefile.*
+config.h
+config.h.in
+config.log
+config.nice
+config.status
+.deps
+libtool
