@@ -22,3 +22,7 @@ config.nice
 config.status
 .deps
 libtool
+*.la
+*.lo
+*.so
+.libs
