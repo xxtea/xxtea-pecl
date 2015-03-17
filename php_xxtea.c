@@ -229,12 +229,29 @@ static uint8_t * xxtea_ubyte_decrypt(const uint8_t * data, size_t len, const uin
     return out;
 }
 
+ZEND_BEGIN_ARG_INFO_EX(xxtea_encrypt_arginfo, 0, 0, 2)
+    ZEND_ARG_INFO(0, data)
+    ZEND_ARG_INFO(0, key)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(xxtea_decrypt_arginfo, 0, 0, 2)
+    ZEND_ARG_INFO(0, data)
+    ZEND_ARG_INFO(0, key)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(xxtea_info_arginfo, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+#ifndef ZEND_FE_END
+#define ZEND_FE_END            { NULL, NULL, NULL }
+#endif
+
 /* compiled function list so Zend knows what's in this module */
 zend_function_entry xxtea_functions[] = {
-    ZEND_FE(xxtea_encrypt, NULL)
-    ZEND_FE(xxtea_decrypt, NULL)
-    ZEND_FE(xxtea_info, NULL)
-    {NULL, NULL, NULL}
+    ZEND_FE(xxtea_encrypt, xxtea_encrypt_arginfo)
+    ZEND_FE(xxtea_decrypt, xxtea_decrypt_arginfo)
+    ZEND_FE(xxtea_info, xxtea_info_arginfo)
+    ZEND_FE_END
 };
 
 /* compiled module information */
@@ -320,9 +337,9 @@ ZEND_FUNCTION(xxtea_decrypt) {
 zend_class_entry *xxtea_ce;
 
 static zend_function_entry xxtea_method[] = {
-    ZEND_ME_MAPPING(encrypt, xxtea_encrypt, NULL, ZEND_ACC_STATIC | ZEND_ACC_PUBLIC)
-    ZEND_ME_MAPPING(decrypt, xxtea_decrypt, NULL, ZEND_ACC_STATIC | ZEND_ACC_PUBLIC)
-    {NULL,NULL,NULL}
+    ZEND_ME_MAPPING(encrypt, xxtea_encrypt, xxtea_encrypt_arginfo, ZEND_ACC_STATIC | ZEND_ACC_PUBLIC)
+    ZEND_ME_MAPPING(decrypt, xxtea_decrypt, xxtea_decrypt_arginfo, ZEND_ACC_STATIC | ZEND_ACC_PUBLIC)
+    ZEND_FE_END
 };
 
 ZEND_MINIT_FUNCTION(xxtea) {
