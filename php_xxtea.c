@@ -86,9 +86,11 @@ typedef unsigned __int32 uint32_t;
 #endif
 
 #if PHP_MAJOR_VERSION < 7
+typedef int length_t;
 #define __RETURN_STRINGL(s, l) RETURN_STRINGL(s, l, 0)
 #define __add_assoc_string(arg, key, str) add_assoc_string(arg, key, str, 1)
 #else
+typedef size_t length_t;
 #define __RETURN_STRINGL(s, l) RETVAL_STRINGL(s, l); efree(s); return;
 #define __add_assoc_string(arg, key, str) add_assoc_string(arg, key, str)
 #endif
@@ -278,7 +280,8 @@ ZEND_GET_MODULE(xxtea)
 ZEND_FUNCTION(xxtea_encrypt) {
     char *data, *key;
     char *result;
-    size_t data_len, key_len, i, ret_length;
+    length_t data_len, key_len;
+    size_t i, ret_length;
     uint8_t fixed_key[16];
 
     if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "ss", &data, &data_len, &key, &key_len) == FAILURE) {
@@ -310,7 +313,8 @@ ZEND_FUNCTION(xxtea_encrypt) {
 ZEND_FUNCTION(xxtea_decrypt) {
     char *data, *key;
     char *result;
-    size_t data_len, key_len, i, ret_length;
+    length_t data_len, key_len;
+    size_t i, ret_length;
     uint8_t fixed_key[16];
 
     if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "ss", &data, &data_len, &key, &key_len) == FAILURE) {
