@@ -1,7 +1,7 @@
 dnl $Id$
 dnl config.m4 for extension xxtea
 PHP_ARG_ENABLE(xxtea, xxtea support,
-[  --enabled-xxtea       Enable xxtea support], [enabled_xxtea="yes"])
+[  --enable-xxtea          Enable xxtea support], [enabled_xxtea="yes"])
 
 dnl Check whether the extension is enabled at all
 if test "$PHP_XXTEA" != "no"; then
