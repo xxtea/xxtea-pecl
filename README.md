@@ -62,6 +62,14 @@ useful ways of package building:
     to install XXTEA extension library into PHP
 
 -----------------------------------------------------------------------------
+### Way 3: Install via pecl
+
+1. Run:
+
+        pecl install xxtea
+
+    That's all.
+-----------------------------------------------------------------------------
 ## Usage
 
 ```php

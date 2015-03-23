@@ -9,7 +9,7 @@
 |      Roger M. Needham                                    |
 |                                                          |
 | Code Author:  Ma Bingyao <mabingyao@gmail.com>           |
-| LastModified: Mar 9, 2015                                |
+| LastModified: Mar 23, 2015                               |
 |                                                          |
 \**********************************************************/
 
@@ -25,7 +25,7 @@ extern zend_module_entry xxtea_module_entry;
 
 #define XXTEA_MODULE_NAME        "xxtea"
 #define XXTEA_BUILD_DATE         __DATE__ " " __TIME__
-#define XXTEA_VERSION            "1.0.5"
+#define XXTEA_VERSION            "1.0.7"
 #define XXTEA_AUTHOR             "Ma Bingyao"
 #define XXTEA_HOMEPAGE           "https://github.com/xxtea/xxtea-pecl"
 
