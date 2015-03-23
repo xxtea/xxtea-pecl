@@ -114,8 +114,8 @@ It is different from the original XXTEA encryption algorithm. It encrypts and de
 			</stability>
 			<date>2015-03-23</date>
 			<license uri="http://mit-license.org/">MIT</license>
-			<notes>Fixed typo in configure output</notes>
-			<notes>Fixed 777 rights</notes>
+			<notes>Fixed typo in configure output
+			Fixed 777 rights</notes>
 		</release>
 		<release>
 			<version>
