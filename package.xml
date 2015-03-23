@@ -22,8 +22,8 @@ It is different from the original XXTEA encryption algorithm. It encrypts and de
 		<email>mabingyao@gmail.com</email>
 		<active>yes</active>
 	</lead>
-	<date>2015-03-09</date>
-	<time>16:01:51</time>
+	<date>2015-03-23</date>
+	<time>02:27:51</time>
 	<version>
 		<release>1.0.5</release>
 		<api>1.0.5</api>
@@ -44,7 +44,7 @@ It is different from the original XXTEA encryption algorithm. It encrypts and de
 			<file role="src" name="config.w32" />
 			<file role="src" name="php_xxtea.h" />
 			<file role="src" name="php_xxtea.c" />
-			<dir name="test">
+			<dir name="tests">
 				<file role="test" name="xxtea.phpt" />
 			</dir>
 		</dir>
