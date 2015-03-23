@@ -23,10 +23,10 @@ It is different from the original XXTEA encryption algorithm. It encrypts and de
 		<active>yes</active>
 	</lead>
 	<date>2015-03-23</date>
-	<time>02:27:51</time>
+	<time>03:50:23</time>
 	<version>
-		<release>1.0.5</release>
-		<api>1.0.5</api>
+		<release>1.0.6</release>
+		<api>1.0.6</api>
 	</version>
 	<stability>
 		<release>stable</release>
