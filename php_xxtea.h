@@ -25,7 +25,7 @@ extern zend_module_entry xxtea_module_entry;
 
 #define PHP_XXTEA_MODULE_NAME   "xxtea"
 #define PHP_XXTEA_BUILD_DATE    __DATE__ " " __TIME__
-#define PHP_XXTEA_VERSION       "1.0.8"
+#define PHP_XXTEA_VERSION       "1.0.9"
 #define PHP_XXTEA_AUTHOR        "Ma Bingyao"
 #define PHP_XXTEA_HOMEPAGE      "https://github.com/xxtea/xxtea-pecl"
 
