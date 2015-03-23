@@ -9,7 +9,7 @@
 |      Roger M. Needham                                    |
 |                                                          |
 | Code Author:  Ma Bingyao <mabingyao@gmail.com>           |
-| LastModified: Mar 17, 2015                               |
+| LastModified: Mar 23, 2015                               |
 |                                                          |
 \**********************************************************/
 
@@ -259,7 +259,7 @@ zend_function_entry xxtea_functions[] = {
 /* compiled module information */
 zend_module_entry xxtea_module_entry = {
     STANDARD_MODULE_HEADER,
-    XXTEA_MODULE_NAME,
+    PHP_XXTEA_MODULE_NAME,
     xxtea_functions,
     ZEND_MINIT(xxtea),
     ZEND_MSHUTDOWN(xxtea),
@@ -361,14 +361,14 @@ ZEND_MINFO_FUNCTION(xxtea) {
     php_info_print_table_start();
     php_info_print_table_row(2, "xxtea support", "enabled");
     php_info_print_table_row(2, "xxtea version", PHP_XXTEA_VERSION);
-    php_info_print_table_row(2, "xxtea author", XXTEA_AUTHOR);
-    php_info_print_table_row(2, "xxtea homepage", XXTEA_HOMEPAGE);
+    php_info_print_table_row(2, "xxtea author", PHP_XXTEA_AUTHOR);
+    php_info_print_table_row(2, "xxtea homepage", PHP_XXTEA_HOMEPAGE);
     php_info_print_table_end();
 }
 
 ZEND_FUNCTION(xxtea_info) {
     array_init(return_value);
     __add_assoc_string(return_value, "ext_version", PHP_XXTEA_VERSION);
-    __add_assoc_string(return_value, "ext_build_date", XXTEA_BUILD_DATE);
-    __add_assoc_string(return_value, "ext_author", XXTEA_AUTHOR);
+    __add_assoc_string(return_value, "ext_build_date", PHP_XXTEA_BUILD_DATE);
+    __add_assoc_string(return_value, "ext_author", PHP_XXTEA_AUTHOR);
 }
