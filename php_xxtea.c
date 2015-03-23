@@ -266,7 +266,7 @@ zend_module_entry xxtea_module_entry = {
     NULL,
     NULL,
     ZEND_MINFO(xxtea),
-    XXTEA_VERSION,
+    PHP_XXTEA_VERSION,
     STANDARD_MODULE_PROPERTIES
 };
 
@@ -360,7 +360,7 @@ ZEND_MSHUTDOWN_FUNCTION(xxtea) {
 ZEND_MINFO_FUNCTION(xxtea) {
     php_info_print_table_start();
     php_info_print_table_row(2, "xxtea support", "enabled");
-    php_info_print_table_row(2, "xxtea version", XXTEA_VERSION);
+    php_info_print_table_row(2, "xxtea version", PHP_XXTEA_VERSION);
     php_info_print_table_row(2, "xxtea author", XXTEA_AUTHOR);
     php_info_print_table_row(2, "xxtea homepage", XXTEA_HOMEPAGE);
     php_info_print_table_end();
@@ -368,7 +368,7 @@ ZEND_MINFO_FUNCTION(xxtea) {
 
 ZEND_FUNCTION(xxtea_info) {
     array_init(return_value);
-    __add_assoc_string(return_value, "ext_version", XXTEA_VERSION);
+    __add_assoc_string(return_value, "ext_version", PHP_XXTEA_VERSION);
     __add_assoc_string(return_value, "ext_build_date", XXTEA_BUILD_DATE);
     __add_assoc_string(return_value, "ext_author", XXTEA_AUTHOR);
 }
