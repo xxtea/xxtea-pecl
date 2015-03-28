@@ -26,3 +26,4 @@ libtool
 *.lo
 *.so
 .libs
+*.tgz
