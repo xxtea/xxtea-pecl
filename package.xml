@@ -11,7 +11,7 @@ http://pear.php.net/dtd/package-2.0
 http://pear.php.net/dtd/package-2.0.xsd">
 	<name>xxtea</name>
 	<channel>pecl.php.net</channel>
-	<summary>XXTEA for PHP.</summary>
+	<summary>XXTEA encryption algorithm extension for PHP.</summary>
 	<description>XXTEA encryption algorithm extension for PHP.
 XXTEA is a fast and secure encryption algorithm. This is a XXTEA extension for PHP.
 It is different from the original XXTEA encryption algorithm. It encrypts and decrypts string instead of uint32 array, and the key is also string.
@@ -22,18 +22,18 @@ It is different from the original XXTEA encryption algorithm. It encrypts and de
 		<email>mabingyao@gmail.com</email>
 		<active>yes</active>
 	</lead>
-	<date>2015-03-23</date>
-	<time>05:54:33</time>
+	<date>2015-03-28</date>
+	<time>11:48:37</time>
 	<version>
-		<release>1.0.9</release>
-		<api>1.0.9</api>
+		<release>1.0.10</release>
+		<api>1.0.10</api>
 	</version>
 	<stability>
 		<release>stable</release>
 		<api>stable</api>
 	</stability>
 	<license uri="http://mit-license.org/">MIT</license>
-	<notes>Added Changelog</notes>
+	<notes>Fixed typo in configure output</notes>
 	<contents>
 		<dir name="/">
 			<file role="doc" name="CREDITS" />
@@ -64,6 +64,19 @@ It is different from the original XXTEA encryption algorithm. It encrypts and de
 		<configureoption default="yes" name="enable-xxtea" prompt="whether to enable xxtea support" />
 	</extsrcrelease>
 	<changelog>
+        <release>
+			<version>
+				<release>1.0.10</release>
+				<api>1.0.10</api>
+			</version>
+			<stability>
+				<release>stable</release>
+				<api>stable</api>
+			</stability>
+			<date>2015-03-28</date>
+			<license uri="http://mit-license.org/">MIT</license>
+			<notes>Fixed typo in configure output</notes>
+		</release>
 		<release>
 			<version>
 				<release>1.0.9</release>
