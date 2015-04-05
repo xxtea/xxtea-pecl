@@ -9,15 +9,9 @@
 |      Roger M. Needham                                    |
 |                                                          |
 | Code Author:  Ma Bingyao <mabingyao@gmail.com>           |
-| LastModified: Mar 23, 2015                               |
+| LastModified: Apr 05, 2015                               |
 |                                                          |
 \**********************************************************/
-
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
-#include "php.h"
 
 #include "php_xxtea.h"
 #include "ext/standard/info.h" /* for phpinfo() functions */
