@@ -21,6 +21,7 @@
 #endif
 
 #include "php.h"
+#include "ext/standard/info.h" /* for phpinfo() functions */
 
 extern zend_module_entry xxtea_module_entry;
 #define phpext_xxtea_ptr &xxtea_module_entry

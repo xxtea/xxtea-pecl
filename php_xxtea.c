@@ -14,7 +14,6 @@
 \**********************************************************/
 
 #include "php_xxtea.h"
-#include "ext/standard/info.h" /* for phpinfo() functions */
 
 #if defined(_MSC_VER) && _MSC_VER < 1600
 typedef unsigned __int8 uint8_t;
