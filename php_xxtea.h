@@ -9,7 +9,7 @@
 |      Roger M. Needham                                    |
 |                                                          |
 | Code Author:  Ma Bingyao <mabingyao@gmail.com>           |
-| LastModified: Apr 05, 2015                               |
+| LastModified: Apr 06, 2015                               |
 |                                                          |
 \**********************************************************/
 
@@ -21,7 +21,6 @@
 #endif
 
 #include "php.h"
-#include "ext/standard/info.h" /* for phpinfo() functions */
 
 extern zend_module_entry xxtea_module_entry;
 #define phpext_xxtea_ptr &xxtea_module_entry
