@@ -9,23 +9,20 @@
 |      Roger M. Needham                                    |
 |                                                          |
 | Code Author:  Ma Bingyao <mabingyao@gmail.com>           |
-| LastModified: Apr 06, 2015                               |
+| LastModified: Apr 09, 2015                               |
 |                                                          |
 \**********************************************************/
 
 #include "php_xxtea.h"
 #include "ext/standard/info.h" /* for phpinfo() functions */
 
-#if defined(_MSC_VER) && _MSC_VER < 1600
-typedef unsigned __int8 uint8_t;
-typedef unsigned __int32 uint32_t;
-#else
-#if defined(__FreeBSD__) && __FreeBSD__ < 5
+#if defined(_MSC_VER)
+#include "win32/php_stdint.h"
+#elif defined(__FreeBSD__) && __FreeBSD__ < 5
 /* FreeBSD 4 doesn't have stdint.h file */
 #include <inttypes.h>
 #else
 #include <stdint.h>
-#endif
 #endif
 
 #include <sys/types.h> /* This will likely define BYTE_ORDER */
