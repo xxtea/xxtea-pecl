@@ -1,6 +1,13 @@
 # XXTEA extension for PHP
 
+<a href="https://github.com/xxtea/">
+    <img src="https://avatars1.githubusercontent.com/u/6683159?v=3&s=86" alt="XXTEA logo" title="XXTEA" align="right" />
+</a>
+
+[![Join the chat at https://gitter.im/xxtea/xxtea-pecl](https://img.shields.io/badge/GITTER-join%20chat-green.svg)](https://gitter.im/xxtea/xxtea-pecl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/xxtea/xxtea-pecl.svg?branch=master)](https://travis-ci.org/xxtea/xxtea-pecl)
+[![GitHub release](https://img.shields.io/github/release/xxtea/xxtea-pecl.svg)](https://github.com/xxtea/xxtea-pecl/releases)
+[![License](https://img.shields.io/github/license/xxtea/xxtea-pecl.svg)](http://opensource.org/licenses/MIT)
 
 ## Introduction
 
