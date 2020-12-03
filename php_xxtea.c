@@ -16,7 +16,7 @@
 #include "php_xxtea.h"
 #include "ext/standard/info.h" /* for phpinfo() functions */
 
-#if defined(_MSC_VER)
+#if defined(_MSC_VER) && _MSC_VER < 1920
 #include "win32/php_stdint.h"
 #elif defined(__FreeBSD__) && __FreeBSD__ < 5
 /* FreeBSD 4 doesn't have stdint.h file */
@@ -281,7 +281,11 @@ ZEND_FUNCTION(xxtea_encrypt) {
     size_t i, ret_length;
     uint8_t fixed_key[16];
 
+#ifdef TSRMLS_CC
     if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "ss", &data, &data_len, &key, &key_len) == FAILURE) {
+#else
+    if (zend_parse_parameters(ZEND_NUM_ARGS(), "ss", &data, &data_len, &key, &key_len) == FAILURE) {
+#endif
         return;
     }
     if (data_len == 0) {
@@ -314,7 +318,11 @@ ZEND_FUNCTION(xxtea_decrypt) {
     size_t i, ret_length;
     uint8_t fixed_key[16];
 
+#ifdef TSRMLS_CC
     if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "ss", &data, &data_len, &key, &key_len) == FAILURE) {
+#else
+    if (zend_parse_parameters(ZEND_NUM_ARGS(), "ss", &data, &data_len, &key, &key_len) == FAILURE) {
+#endif
         return;
     }
     if (data_len == 0) {
@@ -346,7 +354,11 @@ static zend_function_entry xxtea_method[] = {
 ZEND_MINIT_FUNCTION(xxtea) {
     zend_class_entry ce;
     INIT_CLASS_ENTRY(ce, "XXTEA", xxtea_method);
+#ifdef TSRMLS_CC
     xxtea_ce = zend_register_internal_class(&ce TSRMLS_CC);
+#else
+    xxtea_ce = zend_register_internal_class(&ce);
+#endif
     return SUCCESS;
 }
 
